@@ -32,3 +32,4 @@ rebel.xml
 .gradletasknamecache
 .settings/
 bin/
+goorm.manifest
