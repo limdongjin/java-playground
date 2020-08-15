@@ -1,8 +1,11 @@
 package com.limdongjin.symbol_table;
+import java.lang.UnsupportedOperationException;
+import java.security.Key;
 
 import com.limdongjin.symbol_table.SymbolTable;
 import java.lang.Comparable;
 import java.util.Arrays;
+import com.limdongjin.symbol_table.KeyNotFoundException;
 
 public class BinarySearchST<Key extends Comparable<Key>, Value> implements SymbolTable<Key, Value>{
     private Key[] _keys;
@@ -21,18 +24,25 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> implements Symbo
     
     @Override
     public void delete(Key key){
+        int i = _rank(key);
+        if (!_isExistKey(key, i)){
+            throw new KeyNotFoundException();
+        }
         
+        _ShiftLeft(i, _n, 1);
+        assignKeyValueWithIdx(_n, null, null);
+        _n--;
     }
     
     @Override
     public boolean isEmpty(){
-        return _n == 0;    
+        return _n == 0;
     }
 
     @Override
     public boolean contains(Key key){
         // 
-        return true;
+        throw new UnsupportedOperationException("no");
     }
     
     @Override
@@ -46,11 +56,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> implements Symbo
         while(lo <= hi){
             int mid = lo + (hi - lo) / 2;
             int cmp = key.compareTo(_keys[mid]);
-            System.out.println(key);
-                
-            System.out.println(_keys[mid]);
             
-            System.out.println(cmp);
             if(cmp < 0) hi = mid - 1;
             else if(cmp > 0) lo = mid + 1;
             else return mid;
@@ -61,30 +67,52 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> implements Symbo
     @Override
     public Value get(Key key){
         if(isEmpty()) return null;
+        
         int i = _rank(key);
-        if(i < _n && _keys[i].compareTo(key) == 0) 
+        if(_isExistKey(key, i))
             return _values[i];
         else
             return null;
     }
 
     @Override
-    public void put(Key key, Value val){
+    public void put(Key key, Value value){
         int i = _rank(key);
-        if (i < _n && _keys[i].compareTo(key) == 0){
-            _values[i] = val; return;
+        if (_isExistKey(key, i)){
+            _values[i] = value; return;
         }
         
-        _ShiftRightOne(_keys, _values, i, _n);
+        _ShiftRight(i, _n, 1);
         
-        _keys[i] = key; _values[i] = val; 
+        assignKeyValueWithIdx(i, key, value);
+        
         _n++;
     }
     
-    private void _ShiftRightOne(Key[] keys, Value[] values, int from, int to){
+    private void _ShiftRight(int from, int to, int amount){
         for(int i = to; i > from; i--){
-            _keys[i] = _keys[i - 1]; 
-            _values[i] = _values[i - 1];
+            if(i - amount < 0){
+                assignKeyValueWithIdx(i, _keys[0], _values[0]);
+            }    
+            assignKeyValueWithIdx(i, _keys[i - amount], _values[i - amount]);
         }
+    }
+    
+    private void _ShiftLeft(int from, int to, int amount){
+        for(int i = from; i < to; i++){
+            if(_keys[i + amount] == null){
+                assignKeyValueWithIdx(i, null, null);
+                break;
+            }
+            assignKeyValueWithIdx(i, _keys[i + amount], _values[i + amount]);
+        }
+    }
+    
+    private boolean _isExistKey(Key key, int idx){
+        return idx < _n && _keys[idx].compareTo(key) == 0;
+    }
+    
+    private void assignKeyValueWithIdx(int idx, Key key, Value value){
+        _keys[idx] = key; _values[idx] = value;
     }
 }

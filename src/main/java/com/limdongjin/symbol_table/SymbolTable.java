@@ -10,8 +10,3 @@ public interface SymbolTable<Key extends Comparable<Key>, Value> {
     Iterable<Key> keys();
     
 }
-
-// public interface ISt<Key extends Comparable<Key>, Value> { 
-//     // Symbol Table 의 인터페이스
-    
-// }
