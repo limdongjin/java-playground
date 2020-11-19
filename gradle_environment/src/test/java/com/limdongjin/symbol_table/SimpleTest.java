@@ -23,6 +23,7 @@ public class SimpleTest {
         // st.put("one", 1);
         st.put("one", 1);    
         assertEquals(1, (int)st.get("one"));
+        assertEquals(1, 2);
     }
     
     @Test
@@ -60,8 +61,6 @@ public class SimpleTest {
         st.delete("one");
         assertEquals(null, st.get("one"));
         assertEquals(33, (int)st.get("thr"));
-        
-        
     }
     @Test(expected = KeyNotFoundException.class)
     public void delete_not_existed_element(){
