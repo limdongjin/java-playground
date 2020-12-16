@@ -1,4 +1,4 @@
-package org.limdongjin.array;
+package org.limdongjin.Foo;
 
 class ArrayTest {
 	public static void main(String[] args){
