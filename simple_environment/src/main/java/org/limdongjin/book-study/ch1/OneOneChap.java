@@ -10,12 +10,13 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.stream.IntStream;
 import java.util.Arrays;
+
 public class OneOneChap {
     public static void main(String[] args) {
         
         BiConsumer assertEqual = (expected, actual) -> {
             if (expected.equals(actual)) {
-                System.out.println("Pass");
+                // nothing
             }else {
                 System.out.printf("expected: "+expected +",actual: "+actual +"\n");
                 System.out.println("Fail");
