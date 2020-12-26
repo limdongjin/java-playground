@@ -15,7 +15,7 @@ class LinkedList<Item> implements Iterable<Item> {
     public int size(){
         return n;
     }
-    private Node<Item> getNode(int idx){
+    private Node<Item> getNode(final int idx){
         if(idx < 0 || idx >= n) throw new IndexOutOfBoundsException();
         Node<Item> current = head;
         
@@ -25,7 +25,7 @@ class LinkedList<Item> implements Iterable<Item> {
     }
     // TODO: delete duplication of getNode and find. 
     // using functional interface?
-    public int find(Item item){
+    public int find(final Item item){
         Node<Item> current = head;
         
         int idx = -1;
@@ -38,12 +38,12 @@ class LinkedList<Item> implements Iterable<Item> {
 
         return idx;
     }
-    public Item get(int idx){
+    public Item get(final int idx){
         Node<Item> node = getNode(idx);
 
         return node.item;
     }
-    public void addFirst(Item item){
+    public void addFirst(final Item item){
         if(isEmpty()){
             head = new Node(item, null);
             tail = head;
@@ -64,7 +64,7 @@ class LinkedList<Item> implements Iterable<Item> {
             n = 0;
             return node.item;
         }
-        Item old = head.item;
+        final Item old = head.item;
         head = head.next;
         n--;
 
@@ -82,13 +82,13 @@ class LinkedList<Item> implements Iterable<Item> {
         for(int i = 0; i < size() - 2; i++){
             beforeTail = beforeTail.next;
         }
-        Node<Item> oldTail = tail;
+        final Node<Item> oldTailItem = tail.item;
         beforeTail.next = null;
         tail = beforeTail;
         n--;
-        return oldTail.item;
+        return oldTailItem;
     }
-    public void add(Item item){
+    public void add(final Item item){
         if(isEmpty()){
             head = new Node(item, null);
             tail = head;
