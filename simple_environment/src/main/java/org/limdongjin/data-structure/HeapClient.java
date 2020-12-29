@@ -3,12 +3,13 @@ package org.limdongjin.data_structure;
 import java.util.Arrays;
 import java.util.List;
 
-import org.limdongjin.data_structure.MinHeap;
+import org.limdongjin.data_structure.MinHeapEnhanced;;
 import java.util.ArrayList;
 import java.util.List;
 public class HeapClient {
+    
     public void run(){
-        MinHeap<Integer> pq = new MinHeap<>(10, Integer::compare);
+        MinHeapEnhanced<Integer> pq = new MinHeapEnhanced<>(Integer::compare);
         pq.add(15);
 
         pq.printList();
@@ -44,8 +45,8 @@ public class HeapClient {
 
         System.out.println("//////////////////");
         
-        pq = new MinHeap<>(Arrays.asList(18, 9, 10, 100,  1, 2, 3, 11, 4, 5, 12, 6, 7, 0, 15, 8, 9, 16), Integer::compare);
-        pq.printList();
+        //pq = new MinHeap<>(Arrays.asList(18, 9, 10, 100,  1, 2, 3, 11, 4, 5, 12, 6, 7, 0, 15, 8, 9, 16), Integer::compare);
+        // pq.printList();
     }
     public void sort_test(){
         List<Integer> list = Arrays.asList(18, 9, 20, 10, 100,  1, 2, 3, 11, 4, 5, 12, 6, 7, 0, 15, 8, 9, 16);
@@ -66,6 +67,6 @@ public class HeapClient {
     public static void main(String[] args){
         HeapClient app = new HeapClient();
         // app.run();
-        app.sort_test();
+        app.run();
     }
 }
