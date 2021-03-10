@@ -1,0 +1,127 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Fibonacci</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.limdongjin.fibonacci</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Fibonacci (com.limdongjin.fibonacci)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Fibonacci</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (2/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87.5%
+  </span>
+  <span class="absValue">
+    (14/ 16)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.limdongjin.fibonacci;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.lang.IllegalArgumentException;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;class Fibonacci {
+<i>6</i>&nbsp;    private final long[] results;
+<b class="fc"><i>7</i>&nbsp;    private final int LIMIT = 92;</b>
+<b class="fc"><i>8</i>&nbsp;    private int calculatedLastIdx = 1;</b>
+<b class="fc"><i>9</i>&nbsp;    public Fibonacci(){</b>
+<b class="fc"><i>10</i>&nbsp;        results = new long[93];</b>
+<b class="fc"><i>11</i>&nbsp;        results[0] = 0;</b>
+<b class="fc"><i>12</i>&nbsp;        results[1] = 1;</b>
+<b class="fc"><i>13</i>&nbsp;    }</b>
+<i>14</i>&nbsp;    // TODO: upper 90 -&gt; init bigint and return bigint value or throw exception.
+<i>15</i>&nbsp;    public long apply(final int N) throws IllegalArgumentException {
+<b class="fc"><i>16</i>&nbsp;        if(N &gt; LIMIT || N &lt; 0) {</b>
+<b class="fc"><i>17</i>&nbsp;            throw new IllegalArgumentException(&quot;Only 0 &lt;= N &lt;= &quot; + LIMIT +&quot; Argument Supported.&quot;);</b>
+<i>18</i>&nbsp;        }
+<b class="fc"><i>19</i>&nbsp;        if(N &lt;= calculatedLastIdx) return results[N];</b>
+<i>20</i>&nbsp;
+<b class="fc"><i>21</i>&nbsp;        for(int i = calculatedLastIdx + 1; i &lt;= N; i++)</b>
+<b class="fc"><i>22</i>&nbsp;            results[i] = results[i - 1] + results[i - 2];</b>
+<b class="fc"><i>23</i>&nbsp;        calculatedLastIdx = N;</b>
+<i>24</i>&nbsp;
+<b class="fc"><i>25</i>&nbsp;        return results[N];</b>
+<i>26</i>&nbsp;    }
+<i>27</i>&nbsp;    public int foo(){
+<b class="nc"><i>28</i>&nbsp;        System.out.println(&quot;just foo&quot;);</b>
+<b class="nc"><i>29</i>&nbsp;        return 1 +2;</b>
+<i>30</i>&nbsp;    }
+<i>31</i>&nbsp;}
+<i>32</i>&nbsp;//
+<i>33</i>&nbsp;//public class Fibonacci {
+<i>34</i>&nbsp;//    public static void main(final String[] args){
+<i>35</i>&nbsp;//        long result;
+<i>36</i>&nbsp;//        final Fib fib = new Fib();
+<i>37</i>&nbsp;//        for (int n = 0; n &lt; 90; n++){
+<i>38</i>&nbsp;//            result = fib.fibo(n);
+<i>39</i>&nbsp;//            // fib[n] = result;
+<i>40</i>&nbsp;//            System.out.println(n + &quot; &quot; + result);
+<i>41</i>&nbsp;//        }
+<i>42</i>&nbsp;//    }
+<i>43</i>&nbsp;//}
+<i>44</i>&nbsp;
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-03-10 20:28</div>
+</div>
+</body>
+</html>
