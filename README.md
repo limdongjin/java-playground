@@ -1,3 +1,3 @@
-# self_study_algorithm
+# javaPlayground
 
-자바 , 알고리즘 학습
+private java playground repo.
