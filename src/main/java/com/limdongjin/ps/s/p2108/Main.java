@@ -80,8 +80,22 @@ public class Main {
                 break;
             }
         }
-
         bw.write(modeValue + "\n");
+
+        int maxValue = -9999;
+        int minValue = 9999;
+        for (int i = 4000; i > 0; i--) {
+            if(negative[i] == 0) continue;
+            maxValue = Math.max(maxValue, i*(-1));
+            minValue = Math.min(minValue, i*(-1));
+        }
+
+        for (int i = 0; i <= 4000; i++) {
+            if(positiveOrZero[i] == 0) continue;
+            maxValue = Math.max(maxValue, i);
+            minValue = Math.min(minValue, i);
+        }
+        bw.write((maxValue - minValue) + "\n");
 
         bw.flush();
         br.close();
