@@ -3,7 +3,6 @@ package com.limdongjin.ps.s.p2164;
 import java.io.*;
 import java.util.LinkedList;
 
-// [todo]
 public class Main {
     public static void main(String[] args) throws IOException {
         LinkedList<Integer> list = new LinkedList<>();
