@@ -1,3 +1,6 @@
 # javaPlayground
 
-private java playground repo.
+my playground repo.
+
+- PS with boj
+- some algorithm, datastructure implement
