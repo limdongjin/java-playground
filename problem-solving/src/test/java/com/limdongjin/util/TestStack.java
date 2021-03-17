@@ -16,6 +16,7 @@ class TestStack {
     public void initialize(){
         stack = new ResizingArrayStack<>();
     }
+
     @Test
     public void testEmptyStackCase(){
         assertEquals(true, stack.isEmpty());
