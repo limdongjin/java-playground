@@ -1,12 +1,10 @@
 package com.limdongjin.springexamplestudy.demo.repository;
 
 import com.limdongjin.springexamplestudy.demo.domain.Member;
-import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.*;
 
-@Repository
+//@Repository
 public class MemoryMemberRepository implements MemberRepository{
     private static final Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
