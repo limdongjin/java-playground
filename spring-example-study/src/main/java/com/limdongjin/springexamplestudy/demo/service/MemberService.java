@@ -3,10 +3,12 @@ package com.limdongjin.springexamplestudy.demo.service;
 import com.limdongjin.springexamplestudy.demo.domain.Member;
 import com.limdongjin.springexamplestudy.demo.repository.MemberRepository;
 import com.limdongjin.springexamplestudy.demo.repository.MemoryMemberRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
     private MemberRepository memberRepository;
 
