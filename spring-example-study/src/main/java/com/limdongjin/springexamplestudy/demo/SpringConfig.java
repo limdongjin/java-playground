@@ -1,6 +1,5 @@
 package com.limdongjin.springexamplestudy.demo;
 
-import com.limdongjin.springexamplestudy.demo.aop.TimeTraceAop;
 import com.limdongjin.springexamplestudy.demo.repository.*;
 import com.limdongjin.springexamplestudy.demo.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +21,6 @@ public class SpringConfig {
         return new MemberService(memberRepository);
     }
 
-    @Bean
-    public TimeTraceAop timeTraceAop() {
-        return new TimeTraceAop();
-    }
 //    @Bean
 //    public MemberRepository memberRepository(){
 ////        return new MemoryMemberRepository();

@@ -5,8 +5,8 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
-// @Component 로 등록해서 사용할수도있음
 @Aspect
+@Component
 public class TimeTraceAop {
 
     @Around("execution(* com.limdongjin.springexamplestudy.demo..*(..))")
